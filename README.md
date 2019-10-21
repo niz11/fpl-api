@@ -29,21 +29,15 @@
 
 ## IsUpdatingError
 
-[src/index.ts:10-18](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L10-L18 "Source code on GitHub")
-
 **Extends Error**
 
 ## fetchBootstrap
-
-[src/index.ts:44-54](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L44-L54 "Source code on GitHub")
 
 Fetch bootstrap data for the official web app.
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Bootstrap>** Static bootstrap data.
 
 ## fetchElementSummary
-
-[src/index.ts:60-75](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L60-L75 "Source code on GitHub")
 
 Fetch data for an element.
 
@@ -54,8 +48,6 @@ Fetch data for an element.
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;ElementSummary>** 
 
 ## fetchEntryEvent
-
-[src/index.ts:82-95](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L82-L95 "Source code on GitHub")
 
 Fetch entry event data (picks, transfers, etc.).
 
@@ -68,15 +60,11 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## fetchEventStatus
 
-[src/index.ts:100-110](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L100-L110 "Source code on GitHub")
-
 Fetch current event status.
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;EventStatus>** 
 
 ## fetchFixtures
-
-[src/index.ts:116-131](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L116-L131 "Source code on GitHub")
 
 Fetch all fixtures or for a specific event.
 
@@ -88,8 +76,6 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## fetchLive
 
-[src/index.ts:137-147](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L137-L147 "Source code on GitHub")
-
 Fetch live data for a gameweek.
 
 ### Parameters
@@ -99,8 +85,6 @@ Fetch live data for a gameweek.
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Live>** 
 
 ## addToWatchList
-
-[src/index.ts:153-162](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L153-L162 "Source code on GitHub")
 
 Add a player to the current users watchlist.
 
@@ -112,8 +96,6 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## removeFromWatchList
 
-[src/index.ts:168-179](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L168-L179 "Source code on GitHub")
-
 Remove a player from the current users watchlist.
 
 ### Parameters
@@ -123,8 +105,6 @@ Remove a player from the current users watchlist.
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
 
 ## fetchClassicLeague
-
-[src/index.ts:189-207](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L189-L207 "Source code on GitHub")
 
 Fetch classic league standings page.
 
@@ -138,8 +118,6 @@ Fetch classic league standings page.
 
 ## fetchEntryHistory
 
-[src/index.ts:213-223](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L213-L223 "Source code on GitHub")
-
 Fetch an entrys history.
 
 ### Parameters
@@ -148,13 +126,9 @@ Fetch an entrys history.
 
 ## fetchCurrentUser
 
-[src/index.ts:228-238](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L228-L238 "Source code on GitHub")
-
 Fetch the logged in user.
 
 ## fetchMyTeam
-
-[src/index.ts:244-254](https://git@github.com/:jeppe-smith/fpl-api/blob/a844cdf08c04770988a036d81a62506cd091df81/src/index.ts#L244-L254 "Source code on GitHub")
 
 Fetch the team of the logged in user.
 
