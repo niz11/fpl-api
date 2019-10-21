@@ -15,6 +15,7 @@
     "graphql:watch": "node graphql-definitions.js --watch",
     "validate": "tsc --noEmit",
     "lint": "tslint -p tsconfig.json -c tslint.json",
+    "document": "documentation readme src --parse-extension=ts --section=API --document-exported",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
