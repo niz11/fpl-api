@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "description": "A wrapper for Fantasy Premier League API",
   "author": "Jeppe Smith <mail@jeppesmith.dk>",
+  "keywords": [
+    "premier league",
+    "fantasy premier league",
+    "fantasy",
+    "fpl"
+  ],
   "license": "MIT",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeppe-smith/fpl-api.git"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -16,6 +27,7 @@
     "validate": "tsc --noEmit",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "document": "documentation readme src --parse-extension=ts --section=API --document-exported",
+    "prepublishOnly": "yarn build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
