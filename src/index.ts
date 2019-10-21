@@ -7,6 +7,8 @@ import {
   EventStatus,
 } from '../declarations'
 
+export * from '../declarations'
+
 export class IsUpdatingError extends Error {
   constructor() {
     super('https://fantasy.premierleague.com is updating')
