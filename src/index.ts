@@ -98,6 +98,12 @@ export interface Element {
   yellow_cards: number
 }
 
+export interface EntryChipPlay {
+  event: number
+  name: ChipName
+  time: string
+}
+
 export interface EventChipPlay {
   chip_name: ChipName
   num_played: number
@@ -372,6 +378,18 @@ export interface EventStatus {
   leagues: string
 }
 
+export interface EntrySeasonHistory {
+  rank: number
+  season_name: string
+  total_points: number
+}
+
+export interface EntryHistory {
+  chips: EntryChipPlay[]
+  current: EntryEventHistory[]
+  past: EntrySeasonHistory[]
+}
+
 export interface EntryEventHistory {
   bank: number
   event: number
@@ -604,7 +622,9 @@ export async function fetchClassicLeague(
  * Fetch an entrys history.
  * @param entryId ID of an entry team.
  */
-export async function fetchEntryHistory(entryId: number) {
+export async function fetchEntryHistory(
+  entryId: number,
+): Promise<EntryHistory> {
   try {
     const response = await fetchWithGuards(
       `https://fantasy.premierleague.com/api/entry/${entryId}/history/`,
