@@ -16,6 +16,7 @@
     "url": "https://github.com/jeppe-smith/fpl-api.git"
   },
   "scripts": {
+    "prebuild": "node prebuild.js",
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
+    "@types/node-fetch": "^2.5.2",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.15.3",
@@ -66,5 +68,8 @@
   },
   "_moduleAliases": {
     "src": "dist"
+  },
+  "optionalDependencies": {
+    "node-fetch": "^2.6.0"
   }
 }
