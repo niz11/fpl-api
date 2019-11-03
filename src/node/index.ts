@@ -1,4 +1,7 @@
 import fetch, { RequestInfo, RequestInit } from 'node-fetch'
+import { CookieJar } from 'tough-cookie'
+import FormData from 'form-data'
+import fetchCookie from 'fetch-cookie/node-fetch'
 
 /* browser:start */
 
@@ -675,3 +678,40 @@ export async function fetchMyTeam(entryId: number) {
 
 /* browser:end */
 
+/**
+ * Log in and fetch a cookiejar with session (Node only).
+ * @param login E-mail
+ * @param password Password
+ */
+export async function fetchSession(login: string, password: string) {
+  try {
+    const cookieJar = new CookieJar()
+    const fetchWithCookieJar = fetchCookie(fetch, cookieJar)
+    const formData = new FormData()
+
+    formData.append('login', login)
+    formData.append('password', password)
+    formData.append('app', 'plfpl-web')
+    formData.append('redirect_uri', 'https://fantasy.premierleague.com/a/login')
+
+    await fetchWithCookieJar(
+      'https://users.premierleague.com/accounts/login/',
+      {
+        method: 'POST',
+        body: formData,
+      },
+    )
+
+    if (
+      cookieJar
+        .getCookieStringSync('https://premierleague.com')
+        .includes('pl_profile')
+    ) {
+      return cookieJar
+    } else {
+      throw new Error('Wrong credentials')
+    }
+  } catch (error) {
+    throw error
+  }
+}
