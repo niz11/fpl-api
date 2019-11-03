@@ -8,8 +8,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "esModuleInterop": true,
-    "strict": true,
-    "lib": ["dom"]
+    "strict": true
   },
   "exclude": ["node_modules"]
 }

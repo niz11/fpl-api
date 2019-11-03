@@ -1,5 +1,7 @@
 import fetch, { RequestInfo, RequestInit } from 'node-fetch'
 
+/* browser:start */
+
 export enum ElementStatus {
   AVAILABLE = 'a',
   UNAVAILABLE = 'u',
@@ -443,6 +445,8 @@ async function fetchWithGuards(info: RequestInfo, init?: RequestInit) {
 
     if (response.status === 503) {
       throw new IsUpdatingError()
+    } else if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}`)
     }
 
     return response
@@ -668,3 +672,6 @@ export async function fetchMyTeam(entryId: number) {
     throw error
   }
 }
+
+/* browser:end */
+
