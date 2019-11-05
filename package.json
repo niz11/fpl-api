@@ -16,7 +16,7 @@
     "url": "https://github.com/jeppe-smith/fpl-api.git"
   },
   "scripts": {
-    "prebuild": "rimraf browser node && node prebuild.js",
+    "prebuild": "rimraf browser node",
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",

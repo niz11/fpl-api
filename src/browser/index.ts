@@ -1,5 +1,3 @@
-/* browser:start */
-
 export enum ElementStatus {
   AVAILABLE = 'a',
   UNAVAILABLE = 'u',
@@ -670,5 +668,3 @@ export async function fetchMyTeam(entryId: number) {
     throw error
   }
 }
-
-/* browser:end */

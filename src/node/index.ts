@@ -3,8 +3,6 @@ import { CookieJar } from 'tough-cookie'
 import FormData from 'form-data'
 import fetchCookie from 'fetch-cookie/node-fetch'
 
-/* browser:start */
-
 export enum ElementStatus {
   AVAILABLE = 'a',
   UNAVAILABLE = 'u',
@@ -675,8 +673,6 @@ export async function fetchMyTeam(entryId: number) {
     throw error
   }
 }
-
-/* browser:end */
 
 /**
  * Log in and fetch a cookiejar with session (Node only).
