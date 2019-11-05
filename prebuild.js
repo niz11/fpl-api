@@ -8,4 +8,7 @@ let content = fs.readFileSync(
 
 content = content.match(/\/\* browser:start \*\/.*\/\* browser:end \*\//gs)
 
-fs.writeFileSync(path.resolve(__dirname, 'src/index.ts'), `${content}\n`)
+fs.writeFileSync(
+  path.resolve(__dirname, 'src/browser/index.ts'),
+  `${content}\n`,
+)

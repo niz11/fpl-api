@@ -5,7 +5,7 @@
     "removeComments": true,
     "target": "es6",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./",
     "baseUrl": "./",
     "esModuleInterop": true,
     "strict": true
