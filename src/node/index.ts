@@ -1,4 +1,4 @@
-import fetch, { RequestInfo, RequestInit } from 'node-fetch'
+import fetch, { RequestInfo, RequestInit, Response } from 'node-fetch'
 import { CookieJar } from 'tough-cookie'
 import FormData from 'form-data'
 import fetchCookie from 'fetch-cookie/node-fetch'
@@ -434,6 +434,14 @@ export class IsUpdatingError extends Error {
   }
 }
 
+function validateResponse(response: Response): void {
+  if (response.status === 503) {
+    throw new IsUpdatingError()
+  } else if (!response.ok) {
+    throw new Error(`${response.status} ${response.statusText}`)
+  }
+}
+
 /**
  * Fetch with error handling specific for the Fantasy Premier League API.
  * @param info URL or Request.
@@ -444,11 +452,7 @@ async function fetchWithGuards(info: RequestInfo, init?: RequestInit) {
   try {
     const response = await fetch(info, init)
 
-    if (response.status === 503) {
-      throw new IsUpdatingError()
-    } else if (!response.ok) {
-      throw new Error(`${response.status} ${response.statusText}`)
-    }
+    validateResponse(response)
 
     return response
   } catch (error) {
@@ -612,12 +616,16 @@ export async function fetchClassicLeague(
     pageNewEntries: 1,
     phase: 1,
   },
+  session: CookieJar,
 ) {
   try {
-    const response = await fetchWithGuards(
+    const fetchWithCookieJar = fetchCookie(fetch, session)
+    const response = await fetchWithCookieJar(
       // tslint:disable-next-line
       `https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}&phase=${phase}`,
     )
+
+    validateResponse(response)
 
     return response.json()
   } catch (error) {
@@ -646,11 +654,14 @@ export async function fetchEntryHistory(
 /**
  * Fetch the logged in user.
  */
-export async function fetchCurrentUser() {
+export async function fetchCurrentUser(session: CookieJar) {
   try {
-    const response = await fetchWithGuards(
+    const fetchWithCookieJar = fetchCookie(fetch, session)
+    const response = await fetchWithCookieJar(
       'https://fantasy.premierleague.com/api/me/',
     )
+
+    validateResponse(response)
 
     return response.json()
   } catch (error) {
@@ -662,11 +673,14 @@ export async function fetchCurrentUser() {
  * Fetch the team of the logged in user.
  * @param entryId ID of an entry team.
  */
-export async function fetchMyTeam(entryId: number) {
+export async function fetchMyTeam(entryId: number, session: CookieJar) {
   try {
-    const response = await fetchWithGuards(
+    const fetchWithCookieJar = fetchCookie(fetch, session)
+    const response = await fetchWithCookieJar(
       `https://fantasy.premierleague.com/api/my-team/${entryId}/`,
     )
+
+    validateResponse(response)
 
     return response.json()
   } catch (error) {
