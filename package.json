@@ -28,7 +28,7 @@
     "validate": "tsc --noEmit",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "document": "documentation readme src/node --parse-extension=ts --section=API --document-exported",
-    "prepublishOnly": "rimraf dist && npm run build",
+    "prepublishOnly": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
