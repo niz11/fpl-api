@@ -10,7 +10,7 @@
     "fpl"
   ],
   "license": "MIT",
-  "main": "./browser/index.js",
+  "main": "./node/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jeppe-smith/fpl-api.git"
@@ -35,7 +35,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
-  "optionalDependencies": {
+  "dependencies": {
     "fetch-cookie": "^0.7.3",
     "form-data": "^2.5.1",
     "node-fetch": "^2.6.0",
