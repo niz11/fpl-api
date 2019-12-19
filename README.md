@@ -8,146 +8,40 @@
 
 ### Table of Contents
 
-- [ElementStatus](#elementstatus)
-- [ChipName](#chipname)
-- [StatIdentifier](#statidentifier)
-- [ElementStats](#elementstats)
-- [ElementTypes](#elementtypes)
-- [Element](#element)
-- [EntryChipPlay](#entrychipplay)
-- [EventChipPlay](#eventchipplay)
-- [TopElementInfo](#topelementinfo)
-- [Event](#event)
-- [GameSettings](#gamesettings)
-- [Phase](#phase)
-- [Team](#team)
-- [Bootstrap](#bootstrap)
-- [LiveElementStats](#liveelementstats)
-- [LiveElementExplainStat](#liveelementexplainstat)
-- [LiveElementExplain](#liveelementexplain)
-- [LiveElement](#liveelement)
-- [Live](#live)
-- [ElementSummaryUpcomingFixture](#elementsummaryupcomingfixture)
-- [ElementSummaryFixture](#elementsummaryfixture)
-- [ElementSummarySeason](#elementsummaryseason)
-- [ElementSummary](#elementsummary)
-- [FixtureStatMap](#fixturestatmap)
-- [FixtureStat](#fixturestat)
-- [Fixture](#fixture)
-- [EventStatusDayPoints](#eventstatusdaypoints)
-- [EventStatusDay](#eventstatusday)
-- [EventStatus](#eventstatus)
-- [EntrySeasonHistory](#entryseasonhistory)
-- [EntryHistory](#entryhistory)
-- [EntryEventHistory](#entryeventhistory)
-- [EntryEventPick](#entryeventpick)
-- [EntryEvent](#entryevent)
-- [IsUpdatingError](#isupdatingerror)
-- [fetchBootstrap](#fetchbootstrap)
-- [fetchElementSummary](#fetchelementsummary)
-  - [Parameters](#parameters)
-- [fetchEntryEvent](#fetchentryevent)
-  - [Parameters](#parameters-1)
-- [fetchEventStatus](#fetcheventstatus)
-- [fetchFixtures](#fetchfixtures)
-  - [Parameters](#parameters-2)
-- [fetchLive](#fetchlive)
-  - [Parameters](#parameters-3)
-- [addToWatchList](#addtowatchlist)
-  - [Parameters](#parameters-4)
-- [removeFromWatchList](#removefromwatchlist)
-  - [Parameters](#parameters-5)
-- [fetchClassicLeague](#fetchclassicleague)
-  - [Parameters](#parameters-6)
-- [fetchEntryHistory](#fetchentryhistory)
-  - [Parameters](#parameters-7)
-- [fetchCurrentUser](#fetchcurrentuser)
-- [fetchMyTeam](#fetchmyteam)
-  - [Parameters](#parameters-8)
-- [fetchSession](#fetchsession)
-  - [Parameters](#parameters-9)
-
-## ElementStatus
-
-## ChipName
-
-Type: (`"bboost"` \| `"3xc"` \| `"freehit"` \| `"wildcard"`)
-
-## StatIdentifier
-
-Type: (`"minutes"` \| `"goals_scored"` \| `"assists"` \| `"clean_sheets"` \| `"goals_conceded"` \| `"own_goals"` \| `"penalties_saved"` \| `"penalties_missed"` \| `"yellow_cards"` \| `"red_cards"` \| `"saves"` \| `"bonus"` \| `"bps"`)
-
-## ElementStats
-
-## ElementTypes
-
-## Element
-
-## EntryChipPlay
-
-## EventChipPlay
-
-## TopElementInfo
-
-## Event
-
-## GameSettings
-
-## Phase
-
-## Team
-
-## Bootstrap
-
-## LiveElementStats
-
-## LiveElementExplainStat
-
-## LiveElementExplain
-
-## LiveElement
-
-## Live
-
-## ElementSummaryUpcomingFixture
-
-## ElementSummaryFixture
-
-## ElementSummarySeason
-
-## ElementSummary
-
-## FixtureStatMap
-
-## FixtureStat
-
-## Fixture
-
-## EventStatusDayPoints
-
-## EventStatusDay
-
-## EventStatus
-
-## EntrySeasonHistory
-
-## EntryHistory
-
-## EntryEventHistory
-
-## EntryEventPick
-
-## EntryEvent
-
-## IsUpdatingError
-
-**Extends Error**
+-   [fetchBootstrap](#fetchbootstrap)
+-   [fetchElementSummary](#fetchelementsummary)
+    -   [Parameters](#parameters)
+-   [fetchEntryEvent](#fetchentryevent)
+    -   [Parameters](#parameters-1)
+-   [fetchEventStatus](#fetcheventstatus)
+-   [fetchFixtures](#fetchfixtures)
+    -   [Parameters](#parameters-2)
+-   [fetchLive](#fetchlive)
+    -   [Parameters](#parameters-3)
+-   [addToWatchList](#addtowatchlist)
+    -   [Parameters](#parameters-4)
+-   [removeFromWatchList](#removefromwatchlist)
+    -   [Parameters](#parameters-5)
+-   [fetchClassicLeague](#fetchclassicleague)
+    -   [Parameters](#parameters-6)
+-   [fetchH2HLeagueStandings](#fetchh2hleaguestandings)
+    -   [Parameters](#parameters-7)
+-   [fetchH2HMatches](#fetchh2hmatches)
+    -   [Parameters](#parameters-8)
+-   [fetchEntryHistory](#fetchentryhistory)
+    -   [Parameters](#parameters-9)
+-   [fetchCurrentUser](#fetchcurrentuser)
+    -   [Parameters](#parameters-10)
+-   [fetchMyTeam](#fetchmyteam)
+    -   [Parameters](#parameters-11)
+-   [fetchSession](#fetchsession)
+    -   [Parameters](#parameters-12)
 
 ## fetchBootstrap
 
 Fetch bootstrap data for the official web app.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Bootstrap](#bootstrap)>** Static bootstrap data.
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Bootstrap>** Static bootstrap data.
 
 ## fetchElementSummary
 
@@ -155,9 +49,9 @@ Fetch data for an element.
 
 ### Parameters
 
-- `elementId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a player.
+-   `elementId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a player.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[ElementSummary](#elementsummary)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;ElementSummary>** 
 
 ## fetchEntryEvent
 
@@ -165,16 +59,16 @@ Fetch entry event data (picks, transfers, etc.).
 
 ### Parameters
 
-- `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
-- `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a gameweek.
+-   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
+-   `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a gameweek.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[EntryEvent](#entryevent)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;EntryEvent>** 
 
 ## fetchEventStatus
 
 Fetch current event status.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[EventStatus](#eventstatus)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;EventStatus>** 
 
 ## fetchFixtures
 
@@ -182,9 +76,9 @@ Fetch all fixtures or for a specific event.
 
 ### Parameters
 
-- `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** ID of a gameweek.
+-   `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** ID of a gameweek.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Fixture](#fixture)>>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Fixture>>** 
 
 ## fetchLive
 
@@ -192,9 +86,9 @@ Fetch live data for a gameweek.
 
 ### Parameters
 
-- `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a gameweek.
+-   `eventId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a gameweek.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Live](#live)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Live>** 
 
 ## addToWatchList
 
@@ -202,9 +96,10 @@ Add a player to the current users watchlist.
 
 ### Parameters
 
-- `elementCode` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Code of a player.
+-   `session` **CookieJar** Logged in user session.
+-   `elementCode` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Code of a player.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
 
 ## removeFromWatchList
 
@@ -212,9 +107,10 @@ Remove a player from the current users watchlist.
 
 ### Parameters
 
-- `elementCode` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Code of a player.
+-   `session` **CookieJar** Logged in user session.
+-   `elementCode` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Code of a player.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
 
 ## fetchClassicLeague
 
@@ -222,11 +118,41 @@ Fetch classic league standings page.
 
 ### Parameters
 
-- `leagueId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a classic league.
-- `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Page options. (optional, default `{pageStandings:1,pageNewEntries:1,phase:1}`)
-  - `options.pageStandings` Page number of standings.
-  - `options.pageNewEntries` Page number of new entries.
-  - `options.phase` Phase ID.
+-   `session` **CookieJar** Logged in user session.
+-   `leagueId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a classic league.
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Page options. (optional, default `{pageStandings:1,pageNewEntries:1,phase:1}`)
+    -   `options.pageStandings`  Page number of standings.
+    -   `options.pageNewEntries`  Page number of new entries.
+    -   `options.phase`  Phase ID.
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;ClassicLeague>** 
+
+## fetchH2HLeagueStandings
+
+Fetch H2H league standings page.
+
+### Parameters
+
+-   `session` **CookieJar** Logged in user session.
+-   `leagueId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of a H2H league.
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Page options. (optional, default `{pageStandings:1,pageNewEntries:1}`)
+    -   `options.pageStandings`  Page number of standings.
+    -   `options.pageNewEntries`  Page number of new entries.
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;H2HLeague>** 
+
+## fetchH2HMatches
+
+Fetch an entrys matches from a H2H league.
+
+### Parameters
+
+-   `session` **CookieJar** Logged in user session.
+-   `leagueId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of the H2H league.
+-   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of the entry whos matches should be fetched.
+-   `page` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Page number to fetch. (optional, default `1`)
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;H2HLeagueMatches>** 
 
 ## fetchEntryHistory
 
@@ -234,13 +160,19 @@ Fetch an entrys history.
 
 ### Parameters
 
-- `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
+-   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[EntryHistory](#entryhistory)>**
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;EntryHistory>** 
 
 ## fetchCurrentUser
 
 Fetch the logged in user.
+
+### Parameters
+
+-   `session` **CookieJar** 
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Me>** 
 
 ## fetchMyTeam
 
@@ -248,7 +180,10 @@ Fetch the team of the logged in user.
 
 ### Parameters
 
-- `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
+-   `session` **CookieJar** 
+-   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;MyTeam>** 
 
 ## fetchSession
 
@@ -256,5 +191,7 @@ Log in and fetch a cookiejar with session (Node only).
 
 ### Parameters
 
-- `login` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** E-mail
-- `password` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Password
+-   `login` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** E-mail
+-   `password` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Password
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;CookieJar>** 
