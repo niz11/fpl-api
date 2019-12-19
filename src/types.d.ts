@@ -582,25 +582,3 @@ export interface MyTeam {
   chips: MyTeamChip[]
   transfers: MyTeamTransfers
 }
-
-export declare function fetchBootstrap(): Promise<Bootstrap>;
-export declare function fetchElementSummary(elementId: number): Promise<ElementSummary>;
-export declare function fetchEntryEvent(entryId: number, eventId: number): Promise<EntryEvent>;
-export declare function fetchEventStatus(): Promise<EventStatus>;
-export declare function fetchFixtures(eventId?: number): Promise<Fixture[]>;
-export declare function fetchLive(eventId: number): Promise<Live>;
-export declare function addToWatchList(elementCode: number): Promise<boolean>;
-export declare function removeFromWatchList(elementCode: number): Promise<boolean>;
-export declare function fetchClassicLeague(leagueId: number, { pageStandings, pageNewEntries, phase }?: {
-    pageStandings: number;
-    pageNewEntries: number;
-    phase: number;
-}): Promise<ClassicLeague>;
-export declare function fetchH2HLeagueStandings(leagueId: number, { pageStandings, pageNewEntries }?: {
-    pageStandings: number;
-    pageNewEntries: number;
-}): Promise<H2HLeague>;
-export declare function fetchH2HMatches(leagueId: number, entryId: number, page?: number): Promise<H2HLeagueMatches>;
-export declare function fetchEntryHistory(entryId: number): Promise<EntryHistory>;
-export declare function fetchCurrentUser(): Promise<Me>;
-export declare function fetchMyTeam(entryId: number): Promise<MyTeam>;

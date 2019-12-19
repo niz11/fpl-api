@@ -9,50 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ElementStatus;
-(function (ElementStatus) {
-    ElementStatus["AVAILABLE"] = "a";
-    ElementStatus["UNAVAILABLE"] = "u";
-    ElementStatus["INJURED"] = "i";
-    ElementStatus["SUSPENDED"] = "s";
-    ElementStatus["NOT_PLAYING"] = "n";
-    ElementStatus["DEPARTED"] = "d";
-})(ElementStatus = exports.ElementStatus || (exports.ElementStatus = {}));
-var EventStatusDayPoints;
-(function (EventStatusDayPoints) {
-    EventStatusDayPoints["LIVE"] = "l";
-    EventStatusDayPoints["PROVISIONAL"] = "p";
-    EventStatusDayPoints["CONFIRMED"] = "r";
-})(EventStatusDayPoints = exports.EventStatusDayPoints || (exports.EventStatusDayPoints = {}));
-class IsUpdatingError extends Error {
-    constructor() {
-        super('https://fantasy.premierleague.com is updating');
-        this.name = this.constructor.name;
-        Error.captureStackTrace(this, this.constructor);
+function validateResponse(response) {
+    if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
     }
-}
-exports.IsUpdatingError = IsUpdatingError;
-function fetchWithGuards(info, init) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield fetch(info, init);
-            if (response.status === 503) {
-                throw new IsUpdatingError();
-            }
-            else if (!response.ok) {
-                throw new Error(`${response.status} ${response.statusText}`);
-            }
-            return response;
-        }
-        catch (error) {
-            throw error;
-        }
-    });
 }
 function fetchBootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards('https://fantasy.premierleague.com/api/bootstrap-static/');
+            const response = yield fetch('https://fantasy.premierleague.com/api/bootstrap-static/');
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -64,8 +30,10 @@ exports.fetchBootstrap = fetchBootstrap;
 function fetchElementSummary(elementId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/element-summary/${elementId}/`);
-            const data = yield response.json();
+            const response = yield fetch(`https://fantasy.premierleague.com/api/element-summary/${elementId}/`);
+            let data;
+            validateResponse(response);
+            data = yield response.json();
             data.id = elementId;
             return data;
         }
@@ -78,7 +46,8 @@ exports.fetchElementSummary = fetchElementSummary;
 function fetchEntryEvent(entryId, eventId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/entry/${entryId}/event/${eventId}/picks/`);
+            const response = yield fetch(`https://fantasy.premierleague.com/api/entry/${entryId}/event/${eventId}/picks/`);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -90,7 +59,8 @@ exports.fetchEntryEvent = fetchEntryEvent;
 function fetchEventStatus() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards('https://fantasy.premierleague.com/api/event-status');
+            const response = yield fetch('https://fantasy.premierleague.com/api/event-status');
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -107,7 +77,8 @@ function fetchFixtures(eventId) {
             if (eventId !== undefined) {
                 uri = `https://fantasy.premierleague.com/api/fixtures?event=${eventId}`;
             }
-            response = yield fetchWithGuards(uri);
+            response = yield fetch(uri);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -119,7 +90,8 @@ exports.fetchFixtures = fetchFixtures;
 function fetchLive(eventId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/event/${eventId}/live/`);
+            const response = yield fetch(`https://fantasy.premierleague.com/api/event/${eventId}/live/`);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -130,18 +102,20 @@ function fetchLive(eventId) {
 exports.fetchLive = fetchLive;
 function addToWatchList(elementCode) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/watchlist/${elementCode}/`, {
+        const response = yield fetch(`https://fantasy.premierleague.com/api/watchlist/${elementCode}/`, {
             method: 'POST',
         });
+        validateResponse(response);
         return response.status === 201;
     });
 }
 exports.addToWatchList = addToWatchList;
 function removeFromWatchList(elementCode) {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/watchlist/${elementCode}/`, {
+        const response = yield fetch(`https://fantasy.premierleague.com/api/watchlist/${elementCode}/`, {
             method: 'DELETE',
         });
+        validateResponse(response);
         return response.status === 204;
     });
 }
@@ -153,7 +127,8 @@ function fetchClassicLeague(leagueId, { pageStandings, pageNewEntries, phase } =
 }) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}&phase=${phase}`);
+            const response = yield fetch(`https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}&phase=${phase}`);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -162,10 +137,40 @@ function fetchClassicLeague(leagueId, { pageStandings, pageNewEntries, phase } =
     });
 }
 exports.fetchClassicLeague = fetchClassicLeague;
+function fetchH2HLeagueStandings(leagueId, { pageStandings, pageNewEntries } = {
+    pageStandings: 1,
+    pageNewEntries: 1,
+}) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield fetch(`https://fantasy.premierleague.com/api/leagues-h2h/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}`);
+            validateResponse(response);
+            return response.json();
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+exports.fetchH2HLeagueStandings = fetchH2HLeagueStandings;
+function fetchH2HMatches(leagueId, entryId, page = 1) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield fetch(`https://fantasy.premierleague.com/api/leagues-h2h-matches/league/${leagueId}/?page=${page}&entry=${entryId}`);
+            validateResponse(response);
+            return response.json();
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+exports.fetchH2HMatches = fetchH2HMatches;
 function fetchEntryHistory(entryId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/entry/${entryId}/history/`);
+            const response = yield fetch(`https://fantasy.premierleague.com/api/entry/${entryId}/history/`);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -177,7 +182,8 @@ exports.fetchEntryHistory = fetchEntryHistory;
 function fetchCurrentUser() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards('https://fantasy.premierleague.com/api/me/');
+            const response = yield fetch('https://fantasy.premierleague.com/api/me/');
+            validateResponse(response);
             return response.json();
         }
         catch (error) {
@@ -189,7 +195,8 @@ exports.fetchCurrentUser = fetchCurrentUser;
 function fetchMyTeam(entryId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetchWithGuards(`https://fantasy.premierleague.com/api/my-team/${entryId}/`);
+            const response = yield fetch(`https://fantasy.premierleague.com/api/my-team/${entryId}/`);
+            validateResponse(response);
             return response.json();
         }
         catch (error) {

@@ -6,7 +6,7 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "esModuleInterop": true,
     "strict": true
   },

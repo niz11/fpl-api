@@ -18,6 +18,7 @@
   "scripts": {
     "prebuild": "rimraf browser node",
     "build": "tsc -p tsconfig.build.json",
+    "postbuild": "node post-build.js",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "start:watch": "nodemon",
@@ -34,7 +35,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
-  "dependencies": {
+  "optionalDependencies": {
     "fetch-cookie": "^0.7.3",
     "form-data": "^2.5.1",
     "node-fetch": "^2.6.0",
@@ -53,9 +54,8 @@
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.7.0",
     "tslint": "5.12.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.2"
   },
-  "typings": "./dist/index.d.ts",
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -63,7 +63,7 @@
       "ts"
     ],
     "moduleNameMapper": {
-      "^src/(.*)$": "<rootDir>/src/$1"
+      "^src(.*)$": "<rootDir>/src$1"
     },
     "rootDir": ".",
     "testRegex": ".spec.ts$",
