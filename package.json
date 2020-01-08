@@ -26,7 +26,7 @@
     "start:prod": "node dist/index.js",
     "graphql": "node graphql-definitions.js",
     "graphql:watch": "node graphql-definitions.js --watch",
-    "validate": "tsc --noEmit",
+    "validate": "tsc --noEmit -p tsconfig.build.json",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "document": "documentation readme src/node --parse-extension=ts --section=API --document-exported",
     "prepublishOnly": "npm run build",
