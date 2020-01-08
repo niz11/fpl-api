@@ -11,6 +11,7 @@ import {
   H2HLeague,
   H2HLeagueMatches,
   MyTeam,
+  Entry,
 } from '../types'
 
 /**
