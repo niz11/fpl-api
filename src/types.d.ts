@@ -115,6 +115,99 @@ export interface Element {
   yellow_cards: number
 }
 
+interface EntryLeagueInfo {
+  id: 10
+  name: string
+  short_name: string
+  created: string
+  closed: boolean
+  rank: null | number
+  max_entries: null | number
+  league_type: LeagueType
+  admin_entry: null | number
+  start_event: number
+  entry_rank: number
+  entry_last_rank: number
+  entry_can_leave: boolean
+  entry_can_admin: boolean
+  entry_can_invite: boolean
+}
+
+export interface EntryClassicLeague extends EntryLeagueInfo {
+  scoring: 'c'
+}
+
+export interface EntryH2HLeague extends EntryLeagueInfo {
+  scoring: 'h'
+}
+
+export interface CupMatch {
+  id: number
+  entry_1_entry: number
+  entry_1_name: string
+  entry_1_player_name: string
+  entry_1_points: number
+  entry_1_win: number
+  entry_1_draw: number
+  entry_1_loss: number
+  entry_1_total: number
+  entry_2_entry: number
+  entry_2_name: string
+  entry_2_player_name: string
+  entry_2_points: number
+  entry_2_win: number
+  entry_2_draw: number
+  entry_2_loss: number
+  entry_2_total: number
+  is_knockout: boolean
+  winner: number
+  seed_value: null
+  event: number
+  tiebreak: null
+}
+
+export interface EntryCupStatus {
+  qualification_event: number
+  qualification_numbers: number
+  qualification_rank: number
+  qualification_state: 'QUALIFIED' | 'NOT_QUALIFIED_RANK'
+}
+
+export interface EntryCup {
+  matches: CupMatch[]
+  status: EntryCupStatus
+}
+
+export interface EntryLeagues {
+  classic: EntryClassicLeague[]
+  h2h: EntryH2HLeague[]
+  cup: EntryCup
+}
+
+export interface Entry {
+  id: number
+  joined_time: string
+  started_event: number
+  favourite_team: number
+  player_first_name: string
+  player_last_name: string
+  player_region_id: number
+  player_region_name: string
+  player_region_iso_code_short: string
+  player_region_iso_code_long: string
+  summary_overall_points: number
+  summary_overall_rank: number
+  summary_event_points: number
+  summary_event_rank: number
+  current_event: number
+  leagues: EntryLeagues
+  name: string
+  kit: null | string
+  last_deadline_bank: number
+  last_deadline_value: number
+  last_deadline_total_transfers: number
+}
+
 export interface EntryChipPlay {
   event: number
   name: ChipName

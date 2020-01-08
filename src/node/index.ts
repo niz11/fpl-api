@@ -15,6 +15,7 @@ import {
   H2HLeague,
   H2HLeagueMatches,
   MyTeam,
+  Entry,
 } from '../types'
 
 /**
@@ -295,6 +296,24 @@ export async function fetchEntryHistory(
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/entry/${entryId}/history/`,
+    )
+
+    validateResponse(response)
+
+    return response.json()
+  } catch (error) {
+    throw error
+  }
+}
+
+/**
+ * Fetch an entry.
+ * @param entryId ID of an entry team.
+ */
+export async function fetchEntry(entryId: number): Promise<Entry> {
+  try {
+    const response = await fetch(
+      `https://fantasy.premierleague.com/api/entry/${entryId}/`,
     )
 
     validateResponse(response)

@@ -290,6 +290,24 @@ export async function fetchEntryHistory(
 }
 
 /**
+ * Fetch an entry.
+ * @param entryId ID of an entry team.
+ */
+export async function fetchEntry(entryId: number): Promise<Entry> {
+  try {
+    const response = await fetch(
+      `https://fantasy.premierleague.com/api/entry/${entryId}/`,
+    )
+
+    validateResponse(response)
+
+    return response.json()
+  } catch (error) {
+    throw error
+  }
+}
+
+/**
  * Fetch the logged in user.
  */
 export async function fetchCurrentUser(): Promise<Me> {

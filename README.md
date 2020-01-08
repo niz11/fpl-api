@@ -30,12 +30,14 @@
     -   [Parameters](#parameters-8)
 -   [fetchEntryHistory](#fetchentryhistory)
     -   [Parameters](#parameters-9)
--   [fetchCurrentUser](#fetchcurrentuser)
+-   [fetchEntry](#fetchentry)
     -   [Parameters](#parameters-10)
--   [fetchMyTeam](#fetchmyteam)
+-   [fetchCurrentUser](#fetchcurrentuser)
     -   [Parameters](#parameters-11)
--   [fetchSession](#fetchsession)
+-   [fetchMyTeam](#fetchmyteam)
     -   [Parameters](#parameters-12)
+-   [fetchSession](#fetchsession)
+    -   [Parameters](#parameters-13)
 
 ## fetchBootstrap
 
@@ -163,6 +165,16 @@ Fetch an entrys history.
 -   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;EntryHistory>** 
+
+## fetchEntry
+
+Fetch an entry.
+
+### Parameters
+
+-   `entryId` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** ID of an entry team.
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;Entry>** 
 
 ## fetchCurrentUser
 
