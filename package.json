@@ -1,6 +1,6 @@
 {
   "name": "fpl-api",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A wrapper for Fantasy Premier League API",
   "author": "Jeppe Smith <mail@jeppesmith.dk>",
   "keywords": [

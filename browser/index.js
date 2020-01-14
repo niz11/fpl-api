@@ -179,6 +179,19 @@ function fetchEntryHistory(entryId) {
     });
 }
 exports.fetchEntryHistory = fetchEntryHistory;
+function fetchEntry(entryId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield fetch(`https://fantasy.premierleague.com/api/entry/${entryId}/`);
+            validateResponse(response);
+            return response.json();
+        }
+        catch (error) {
+            throw error;
+        }
+    });
+}
+exports.fetchEntry = fetchEntry;
 function fetchCurrentUser() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
