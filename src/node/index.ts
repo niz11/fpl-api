@@ -18,6 +18,11 @@ import {
   Entry,
 } from '../types'
 
+const HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36',
+}
+
 /**
  * Validates a response from https://fantasy.premierleague.com.
  * @param response Fetch Response object.
@@ -36,6 +41,11 @@ export async function fetchBootstrap(): Promise<Bootstrap> {
   try {
     const response = await fetch(
       'https://fantasy.premierleague.com/api/bootstrap-static/',
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -56,6 +66,11 @@ export async function fetchElementSummary(
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/element-summary/${elementId}/`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
     let data
 
@@ -82,6 +97,11 @@ export async function fetchEntryEvent(
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/entry/${entryId}/event/${eventId}/picks/`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -99,6 +119,11 @@ export async function fetchEventStatus(): Promise<EventStatus> {
   try {
     const response = await fetch(
       'https://fantasy.premierleague.com/api/event-status',
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -140,6 +165,11 @@ export async function fetchLive(eventId: number): Promise<Live> {
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/event/${eventId}/live/`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -296,6 +326,11 @@ export async function fetchEntryHistory(
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/entry/${entryId}/history/`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -314,6 +349,11 @@ export async function fetchEntry(entryId: number): Promise<Entry> {
   try {
     const response = await fetch(
       `https://fantasy.premierleague.com/api/entry/${entryId}/`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -388,6 +428,9 @@ export async function fetchSession(
       {
         method: 'POST',
         body: formData,
+        headers: {
+          ...HEADERS,
+        },
       },
     )
 

@@ -13,7 +13,7 @@ import {
   fetchClassicLeague,
   fetchH2HLeagueStandings,
   fetchH2HMatches,
-} from 'src/node'
+} from '../src/node'
 import { CookieJar } from 'tough-cookie'
 
 config()
