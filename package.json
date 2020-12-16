@@ -16,8 +16,6 @@
     "url": "https://github.com/jeppe-smith/fpl-api.git"
   },
   "scripts": {
-    "rimraf": "./node_modules/rimraf/bin.js",
-    "prebuild": "rimraf browser node",
     "build": "tsc -p tsconfig.build.json",
     "postbuild": "node post-build.js",
     "format": "prettier --write \"src/**/*.ts\"",
