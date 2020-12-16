@@ -194,6 +194,9 @@ export async function addToWatchList(
     `https://fantasy.premierleague.com/api/watchlist/${elementCode}/`,
     {
       method: 'POST',
+      headers: {
+        ...HEADERS,
+      },
     },
   )
 
@@ -216,6 +219,9 @@ export async function removeFromWatchList(
     `https://fantasy.premierleague.com/api/watchlist/${elementCode}/`,
     {
       method: 'DELETE',
+      headers: {
+        ...HEADERS,
+      }
     },
   )
 
@@ -247,6 +253,11 @@ export async function fetchClassicLeague(
     const response = await fetchWithCookieJar(
       // tslint:disable-next-line
       `https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}&phase=${phase}`,
+      {
+        headers: {
+          ...HEADERS,
+        },
+      },
     )
 
     validateResponse(response)
@@ -277,7 +288,11 @@ export async function fetchH2HLeagueStandings(
     const fetchWithCookieJar = fetchCookie(fetch, session)
     const response = await fetchWithCookieJar(
       // tslint:disable-next-line
-      `https://fantasy.premierleague.com/api/leagues-h2h/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}`,
+      `https://fantasy.premierleague.com/api/leagues-h2h/${leagueId}/standings/?page_new_entries=${pageNewEntries}&page_standings=${pageStandings}`,{
+        headers: {
+          ...HEADERS,
+        },
+      }
     )
 
     validateResponse(response)
@@ -305,7 +320,11 @@ export async function fetchH2HMatches(
     const fetchWithCookieJar = fetchCookie(fetch, session)
     const response = await fetchWithCookieJar(
       // tslint:disable-next-line
-      `https://fantasy.premierleague.com/api/leagues-h2h-matches/league/${leagueId}/?page=${page}&entry=${entryId}`,
+      `https://fantasy.premierleague.com/api/leagues-h2h-matches/league/${leagueId}/?page=${page}&entry=${entryId}`,{
+        headers: {
+          ...HEADERS,
+        }
+      }
     )
 
     validateResponse(response)
@@ -371,7 +390,11 @@ export async function fetchCurrentUser(session: CookieJar): Promise<Me> {
   try {
     const fetchWithCookieJar = fetchCookie(fetch, session)
     const response = await fetchWithCookieJar(
-      'https://fantasy.premierleague.com/api/me/',
+      'https://fantasy.premierleague.com/api/me/',{
+        headers: {
+          ...HEADERS,
+        },
+      }
     )
 
     validateResponse(response)
@@ -393,7 +416,11 @@ export async function fetchMyTeam(
   try {
     const fetchWithCookieJar = fetchCookie(fetch, session)
     const response = await fetchWithCookieJar(
-      `https://fantasy.premierleague.com/api/my-team/${entryId}/`,
+      `https://fantasy.premierleague.com/api/my-team/${entryId}/`,{
+        headers: {
+          ...HEADERS,
+        },
+      }
     )
 
     validateResponse(response)
