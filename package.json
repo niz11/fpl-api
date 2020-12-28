@@ -21,8 +21,6 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "start:watch": "nodemon",
-    "prestart:prod": "rimraf dist && npm run build",
-    "start:prod": "node dist/index.js",
     "graphql": "node graphql-definitions.js",
     "graphql:watch": "node graphql-definitions.js --watch",
     "validate": "tsc --noEmit -p tsconfig.build.json",
